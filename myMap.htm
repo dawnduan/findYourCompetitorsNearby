@@ -1,0 +1,277 @@
+<!DOCTYPE html> 
+ <html> 
+ <head> 
+ <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+ <meta charset="utf-8"> 
+ <style type="text/css">  
+ html { height: 100% ; font-size: small} 
+ body { height: 100%; margin: 0px; padding: 0px }
+ #map_canvas {min-height: 100%;height:auto; } 
+ #cBoxes {position:absolute;right:5px; top:50px; background:white}
+</style> 
+
+ <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&v=3.18"> </script>  
+
+ <script language="javascript"> 
+  
+ USGSOverlay.prototype = new google.maps.OverlayView(); 
+function USGSOverlay(bounds, image, map) {
+      this.bounds_ = bounds;
+      this.image_ = image;
+      this.map_ = map;
+      this.div_ = null;
+      this.setMap(map); }
+USGSOverlay.prototype.onAdd = function() {
+      var div = document.createElement("DIV");
+      div.style.border = "none";
+      div.style.borderWidth = "0px";
+      div.style.position = "absolute";
+      var img = document.createElement("img");
+      img.src = this.image_;
+      img.style.width = "100%";
+      img.style.height = "100%";
+      div.appendChild(img);
+      this.div_ = div;
+      this.div_.style.opacity = 0.7;
+      var panes = this.getPanes();
+      panes.overlayImage.appendChild(this.div_);}
+USGSOverlay.prototype.draw = function() {
+        var overlayProjection = this.getProjection();
+        var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+        var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+        var div = this.div_;
+        div.style.left = sw.x + "px";
+        div.style.top = ne.y + "px";
+        div.style.width = (ne.x - sw.x) + "px";
+        div.style.height = (sw.y - ne.y) + "px";} 
+USGSOverlay.prototype.onRemove = function() { 
+ this.div_.parentNode.removeChild(this.div_);} 
+USGSOverlay.prototype.hide = function() { if (this.div_) { this.div_.style.visibility = "hidden";} } 
+USGSOverlay.prototype.show = function() {if (this.div_) {  this.div_.style.visibility = "visible";}} 
+       USGSOverlay.prototype.toggle = function() { 
+ if (this.div_) { 
+  if (this.div_.style.visibility == "hidden") {  
+   this.show(); 
+  } else { 
+  this.hide(); } } } 
+ USGSOverlay.prototype.toggleDOM = function() {
+          if (this.getMap()) {
+            this.setMap(null);
+          } else {
+            this.setMap(this.map_);}}
+ function setOpacR(Raster,textname) { 
+  opac=0.01*parseInt(document.getElementById(textname).value) 
+    Raster.div_.style.opacity= opac } 
+
+ var marker 
+ var  map  
+ var  markersX12035 =[] ; var  marker = new google.maps.Marker({ 
+ position: new google.maps.LatLng(35.24992,-89.6171),
+ map:map,
+ title:"code : 101 \rcluster : 1 \rname : A \r",
+ clickable: true,
+ draggable: false,
+ flat: true,
+ visible: true,
+ icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_spin&chld=0.6|0|FF0000|10|b|1"), 
+  zIndex: null }); 
+markersX12035.push(marker); 
+
+var  marker = new google.maps.Marker({ 
+ position: new google.maps.LatLng(35.1051,-90.0154),
+ map:map,
+ title:"code : 105 \rcluster : 1 \rname : B \r",
+ clickable: true,
+ draggable: false,
+ flat: true,
+ visible: true,
+ icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_spin&chld=0.6|0|FF0000|10|b|1"), 
+  zIndex: null }); 
+markersX12035.push(marker); 
+
+var  marker = new google.maps.Marker({ 
+ position: new google.maps.LatLng(34.93277,-89.5213),
+ map:map,
+ title:"code : 106 \rcluster : 2 \rname : C \r",
+ clickable: true,
+ draggable: false,
+ flat: true,
+ visible: true,
+ icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_spin&chld=0.6|0|00FF00|10|b|2"), 
+  zIndex: null }); 
+markersX12035.push(marker); 
+
+var  marker = new google.maps.Marker({ 
+ position: new google.maps.LatLng(36.34807,-86.8642),
+ map:map,
+ title:"code : 111 \rcluster : 1 \rname : D \r",
+ clickable: true,
+ draggable: false,
+ flat: true,
+ visible: true,
+ icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_spin&chld=0.6|0|FF0000|10|b|1"), 
+  zIndex: null }); 
+markersX12035.push(marker); 
+
+var  marker = new google.maps.Marker({ 
+ position: new google.maps.LatLng(36.19958,-86.6125),
+ map:map,
+ title:"code : 113 \rcluster : 3 \rname : E \r",
+ clickable: true,
+ draggable: false,
+ flat: true,
+ visible: true,
+ icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_spin&chld=0.6|0|0000FF|10|b|3"), 
+  zIndex: null }); 
+markersX12035.push(marker); 
+
+var  marker = new google.maps.Marker({ 
+ position: new google.maps.LatLng(30.02196,-90.4611),
+ map:map,
+ title:"code : 114 \rcluster : 2 \rname : F \r",
+ clickable: true,
+ draggable: false,
+ flat: true,
+ visible: true,
+ icon: new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_spin&chld=0.6|0|00FF00|10|b|2"), 
+  zIndex: null }); 
+markersX12035.push(marker); 
+
+function showR(R,boxname, map) {
+  R.setMap(map);
+  document.getElementById(boxname).checked = true; }
+
+function hideR(R,boxname) {
+R.setMap(null);
+document.getElementById(boxname).checked = false; }
+
+function showO(MLPArray,boxname, map ) { 
+for (var i = 0; i < MLPArray.length; i++) { 
+MLPArray[i].setMap(map); } 
+document.getElementById(boxname).checked = true; }
+
+function hideO(MLPArray,boxname) { 
+for (var i = 0; i < MLPArray.length; i++) { 
+MLPArray[i].setMap(null);} 
+document.getElementById(boxname).checked = false; } 
+
+function boxclick(box,MLPArray,boxname, map) { 
+if (box.checked) { showO(MLPArray,boxname, map); 
+}else {  hideO(MLPArray,boxname);} }
+
+function setOpac(MLPArray,textname){
+opacity=0.01*parseInt(document.getElementById(textname).value) 
+for(var i = 0; i < MLPArray.length; i++) {
+MLPArray[i].setOptions({strokeOpacity: opacity, fillOpacity: opacity}); }}
+
+function setOpacL(MLPArray,textname) {
+opacity=0.01*parseInt(document.getElementById(textname).value) 
+for (var i = 0; i < MLPArray.length; i++) {
+MLPArray[i].setOptions({strokeOpacity: opacity});}}
+
+function setLineWeight(MLPArray,textnameW){
+weight=parseInt(document.getElementById(textnameW).value)
+for (var i = 0; i < MLPArray.length; i++){
+MLPArray[i].setOptions({strokeWeight: weight}); } }
+
+function legendDisplay(box,divLegendImage){
+element = document.getElementById(divLegendImage).style;
+if (box.checked){ element.display="block";} else {  element.display="none";}}
+
+function boxclickR(box,R,boxname, map) {
+if (box.checked){
+showR(R,boxname,map); } else { hideR(R,boxname);} }
+
+function legendDisplay(box,divLegendImage){
+element = document.getElementById(divLegendImage).style; 
+if (box.checked){ element.display="block";} else {  element.display="none";}}  
+ function initialize() { 
+ var latlng = new google.maps.LatLng( 33.185015 , -88.5368 ) ; 
+ 
+ var myOptions = { zoom: 15 , 
+ center: latlng , 
+ mapTypeId: google.maps.MapTypeId.ROADMAP  ,
+ disableDefaultUI: false  ,
+ disableDoubleClickZoom: false  ,
+  draggable: true  ,
+  keyboardShortcuts:  true  ,
+ mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DEFAULT}  ,
+  navigationControl: true  ,
+ navigationControlOptions: {style: google.maps.NavigationControlStyle.DEFAULT}  ,
+ noClear: false  ,
+ scaleControl: true  ,
+ scaleControlOptions: {style: google.maps.ScaleControlStyle.STANDARD}  ,
+  scrollwheel: true  ,
+ streetViewControl: false } ; 
+ 
+ map= new google.maps.Map(document.getElementById("map_canvas"),myOptions); 
+ map.fitBounds(new google.maps.LatLngBounds(
+ new google.maps.LatLng(30.02196,-90.4611),
+ new google.maps.LatLng( 36.34807,-86.6125)));   var infowindow = new google.maps.InfoWindow({ content: "", disableAutoPan:false, maxWidth :330, pixelOffset :null  }); 
+ google.maps.event.addListener(markersX12035[0] ,"click",function(event){ 
+
+ infowindow.setContent("code : 101 <br>cluster : 1 <br>name : A <br>"); 
+
+ infowindow.setPosition(event.latLng);
+infowindow.open(map,markersX12035[0] )});   
+
+  var infowindow = new google.maps.InfoWindow({ content: "", disableAutoPan:false, maxWidth :330, pixelOffset :null  }); 
+ google.maps.event.addListener(markersX12035[1] ,"click",function(event){ 
+
+ infowindow.setContent("code : 105 <br>cluster : 1 <br>name : B <br>"); 
+
+ infowindow.setPosition(event.latLng);
+infowindow.open(map,markersX12035[1] )});   
+
+  var infowindow = new google.maps.InfoWindow({ content: "", disableAutoPan:false, maxWidth :330, pixelOffset :null  }); 
+ google.maps.event.addListener(markersX12035[2] ,"click",function(event){ 
+
+ infowindow.setContent("code : 106 <br>cluster : 2 <br>name : C <br>"); 
+
+ infowindow.setPosition(event.latLng);
+infowindow.open(map,markersX12035[2] )});   
+
+  var infowindow = new google.maps.InfoWindow({ content: "", disableAutoPan:false, maxWidth :330, pixelOffset :null  }); 
+ google.maps.event.addListener(markersX12035[3] ,"click",function(event){ 
+
+ infowindow.setContent("code : 111 <br>cluster : 1 <br>name : D <br>"); 
+
+ infowindow.setPosition(event.latLng);
+infowindow.open(map,markersX12035[3] )});   
+
+  var infowindow = new google.maps.InfoWindow({ content: "", disableAutoPan:false, maxWidth :330, pixelOffset :null  }); 
+ google.maps.event.addListener(markersX12035[4] ,"click",function(event){ 
+
+ infowindow.setContent("code : 113 <br>cluster : 3 <br>name : E <br>"); 
+
+ infowindow.setPosition(event.latLng);
+infowindow.open(map,markersX12035[4] )});   
+
+  var infowindow = new google.maps.InfoWindow({ content: "", disableAutoPan:false, maxWidth :330, pixelOffset :null  }); 
+ google.maps.event.addListener(markersX12035[5] ,"click",function(event){ 
+
+ infowindow.setContent("code : 114 <br>cluster : 2 <br>name : F <br>"); 
+
+ infowindow.setPosition(event.latLng);
+infowindow.open(map,markersX12035[5] )});   
+showO(markersX12035,"markersX12035box",map);  google.maps.event.addListener(  map , 'rightclick', function(event) {
+    var lat = event.latLng.lat();
+    var lng = event.latLng.lng();
+    alert('Lat=' + lat + '; Lng=' + lng);});   
+ }
+</script> 
+ </head> 
+ <body onload="initialize()"> 
+  <div id="map_canvas"></div>  
+
+                           
+ <div id="cBoxes"> 
+<input type="checkbox" id="markersX12035box" onClick='boxclick(this,markersX12035,"markersX12035box",map);' /> <b>Clusters<b> <hr /> 
+ <table> <tr>  <td> <input type="checkbox"  checked="checked" id="boxLegendd7445737149" onClick='legendDisplay(this,"Legendd7445737149");' /> LEGEND </td> </tr>  <tr> <td>cluster</td> </tr>
+                                    <tr> <td> <div style="display:block;" id="Legendd7445737149"> <img src="Legendd7445737149.png" alt="Legend" height="70%"> </div>
+                           </td> </tr> 
+ </table> 
+  <hr> 
+ </div> 
+ </body>  
+  </html>
