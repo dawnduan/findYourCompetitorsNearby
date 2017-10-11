@@ -11,3 +11,6 @@ Use case: finds restaurants nearby if you wanna open a pizza shop at young and d
 
 You can find a list of types provided by google [here](https://developers.google.com/places/web-service/supported_types). For more details about Google Place API please see [here](https://developers.google.com/places/web-service/)¸
 
+Please find the main code in playground.R
+- credits to answer from stokeoverflow answer to this question : "[Retrieve Location coordinates from google maps in R
+](https://stackoverflow.com/questions/34800031/retrieve-location-coordinates-from-google-maps-in-r)"
